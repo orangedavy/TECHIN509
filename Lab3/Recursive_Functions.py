@@ -1,25 +1,32 @@
 def factorial(x):
+    """Finds the Factorial of a given number."""
 
     # recursive call until number reaches 1
     return 1 if x <= 1 else x * factorial(x - 1)
 
 
 def inc(x: int) -> int:
-    # Increments and returns the given integer
+    """Increments value by 1."""
+
+    # increments and returns the given integer
     if not isinstance(x, int):
         raise TypeError("Given number is not an integer.")
     return x + 1
 
 
 def dec(x: int) -> int:
-    # Decrements and returns the given integer
+    """Decrements value by 1."""
+
+    # decrements and returns the given integer
     if not isinstance(x, int):
         raise TypeError("Given number is not an integer.")
     return x - 1
 
 
 def add(x: int, y: int) -> int:
-    # Adds and returns two given integers with increment and decrement functions
+    """Adds positive value with custom inc() and dec() functions."""
+
+    # adds and returns two given integers with increment and decrement functions
     if not isinstance(x, int) or not isinstance(y, int):
         raise TypeError("Given input is not an integer.")
     if x < 0 or y < 0:
@@ -30,7 +37,9 @@ def add(x: int, y: int) -> int:
 
 
 def add_mod(x: int, y: int) -> int:
-    # Adds and returns two given integers with increment and decrement functions
+    """Adds positive and negative values with custom functions."""
+
+    # adds and returns two given integers with increment and decrement functions
     if not isinstance(x, int) or not isinstance(y, int):
         raise TypeError("Given input is not an integer.")
 
@@ -44,12 +53,14 @@ def add_mod(x: int, y: int) -> int:
 
 
 def leap_year(x):
+    """Determines if a year is leap year."""
 
     # 'No' is easier to define with boolean values
     return 'No' if not x % 100 and x % 400 or x % 4 else 'Yes'
 
 
 def fibonacci(n):
+    """Finds the nth Fibonacci number."""
 
     if not isinstance(n, int) or n < 0:
         # input validation
