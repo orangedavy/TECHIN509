@@ -8,13 +8,11 @@ if __name__ == '__main__':
     board = make_empty_board()
     winner = None
 
-    prompt_turn = f"Choose the player, X or O?\n"
-    player = check_first_turn(input(prompt_turn))
+    player = check_first_turn(prompt_input('turn'))
     count = 0
 
     while winner is None and count <= 9:
-        prompt_move = f"Make your move, player {player}.\n"
-        move = check_move(input(prompt_move), player, board)
+        move = check_move(prompt_input('move', player), player, board)
 
         winner = get_winner(board)
         print_board(board, winner)
