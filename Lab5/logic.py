@@ -2,7 +2,7 @@
 # or output happens here. The logic in this file
 # should be unit-testable.
 
-def make_empty_board ():
+def make_empty_board():
     return [
         [None, None, None],
         [None, None, None],
@@ -10,7 +10,7 @@ def make_empty_board ():
     ]
 
 
-def prompt_input (intent, player=None):
+def prompt_input(intent, player=None):
     """Prompts user input with different intents for display."""
 
     prompt = {
@@ -20,7 +20,7 @@ def prompt_input (intent, player=None):
     return input(prompt[intent])
 
 
-def print_board (board, winner):
+def print_board(board, winner):
     """Prints the current status of the board and total scores."""
 
     # convert the board for better display
@@ -35,7 +35,7 @@ def print_board (board, winner):
           f"\nCurrent winner: {winner}")
 
 
-def check_first_turn (turn):
+def check_first_turn(turn):
     """Sanity checks the input of the first turn."""
 
     try:
@@ -53,7 +53,7 @@ def check_first_turn (turn):
     return turn
 
 
-def check_move (move, player, board):
+def check_move(move, player, board):
     """Sanity checks the move of the player.
     Updates the board status if passed."""
 
@@ -85,7 +85,7 @@ def check_move (move, player, board):
     return board
 
 
-def get_winner (board):
+def get_winner(board):
     """Determines the winner of the given board.
     Returns 'X', 'O', or None."""
 
@@ -108,6 +108,6 @@ def get_winner (board):
     return 'O' if -3 in sum_temp else 'X' if 3 in sum_temp else None
 
 
-def switch_player (player):
+def switch_player(player):
     """Given the character for a player, returns the other player."""
     return "O" if player == "X" else "X"
