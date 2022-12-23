@@ -9,7 +9,8 @@ if __name__ == '__main__':
     # welcomes the user and prompts game mode
     prompt_mode = (f"Welcome to the Tic Tac Toe!\n"
                    f"Select the mode to start gaming:\n"
-                   f"1 for a battle with the computer and 2 for a double with your friend.\n")
+                   f"\t1 for a battle with the computer;\n"
+                   f"\t2 for a double with your friend.\n")
     mode = input(prompt_mode)
 
     while not mode.isdigit() and mode not in range(1, 3):
@@ -25,5 +26,6 @@ if __name__ == '__main__':
         player_1 = Human('X')
         player_2 = Human('O')
 
+    # initiates the game with two players
     game = Game(player_1, player_2)
     game.play_game()
