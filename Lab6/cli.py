@@ -5,22 +5,25 @@
 from logic import *
 
 if __name__ == '__main__':
-    board = make_empty_board()
-    winner = None
 
-    player = check_first_turn(prompt_input('turn'))
-    count = 0
+    # welcomes the user and prompts game mode
+    prompt_mode = (f"Welcome to the Tic Tac Toe!\n"
+                   f"Select the mode to start gaming:\n"
+                   f"1 for a battle with the computer and 2 for a double with your friend.\n")
+    mode = input(prompt_mode)
 
-    while winner is None and count <= 9:
-        move = check_move(prompt_input('move', player), player, board)
+    while not mode.isdigit() and mode not in range(1, 3):
+        # sanity checks the game mode
+        mode = input(f"Pick a valid number between 1 and 2!")
 
-        winner = get_winner(board)
-        print_board(board, winner)
-
-        player = switch_player(player)
-        count += 1
-
-    if winner:
-        print(f"Player {player} is the winner!")
+    if int(mode) == 1:
+        # initiates a human instance and a bot instance for single player
+        player_1 = Human('X')
+        player_2 = Bot('O')
     else:
-        print(f"There's no winner. Try again!")
+        # initiates two human instances for double players
+        player_1 = Human('X')
+        player_2 = Human('O')
+
+    game = Game(player_1, player_2)
+    game.play_game()
