@@ -4,19 +4,13 @@ import logic
 
 class TestLogic(unittest.TestCase):
 
-    def test_check_turn (self):
-        self.assertEqual(logic.check_first_turn('X'), 'X')
-        self.assertEqual(logic.check_first_turn('o'), 'O')  # upper case
-
-        self.assertRaises(ValueError, logic.check_first_turn, 123)  # not str
-        self.assertRaises(ValueError, logic.check_first_turn, [10])  # not str
-
     def test_check_move (self):
         board = [
             ['X', None, 'O'],
             [None, None, None],
             [None, 'O', 'X'],
         ]
+        game = logic.Game(logic.Human('X'), logic.Bot('O'))
         self.assertEqual(logic.check_move(5, 'X', board), [
             ['X', None, 'O'],
             [None, 'X', None],
@@ -50,10 +44,6 @@ class TestLogic(unittest.TestCase):
             [None, None, None],
             [None, 'O', 'X'],
         ]
-        self.assertRaises(ValueError, logic.check_move, 10, 'X', board)  # out of range
-        self.assertRaises(TypeError, logic.check_move, [10], 'X', board)  # not int
-        self.assertRaises(ValueError, logic.check_move, '10', 'X', board)  # not int
-        self.assertRaises(ValueError, logic.check_move, 8, 'X', board)  # taken
 
     def test_get_winner (self):
         board = [
