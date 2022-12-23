@@ -8,7 +8,7 @@ from itertools import cycle
 
 
 class Game:
-    def __init__(self, player_1, player_2):
+    def __init__ (self, player_1, player_2):
         """Initializes a game with default settings"""
 
         # sets players as in selected mode
@@ -20,13 +20,14 @@ class Game:
         self.make_empty_board()
         self.winner = None
         self.count = 0
+        self.resume = False
 
-    def make_empty_board(self):
+    def make_empty_board (self):
         """Initializes an empty board to start the game."""
 
         self.board = np.empty((3, 3), object)
 
-    def print_board(self):
+    def print_board (self):
         """Prints the current status of the board and total scores."""
 
         # convert the board for better display
@@ -41,7 +42,7 @@ class Game:
               f"\t  {mod_board[6]} | {mod_board[7]} | {mod_board[8]}  \n"
               f"\nCurrent winner: {self.winner}\n")
 
-    def get_winner(self):
+    def get_winner (self):
         """Determines the winner of the given board.
         Returns 'X', 'O', or None."""
 
@@ -63,24 +64,17 @@ class Game:
         # conditional result return based on the sum of each route
         return 'O' if -3 in sum_temp else 'X' if 3 in sum_temp else None
 
-    def switch_player(self):
+    def switch_player (self):
         """Toggle between two players."""
 
         self.player = next(self.players)
 
-    def update_board(self, row, column):
+    def update_board (self, row, column):
         """Updates the board to reflect the move a player makes."""
 
         self.board[row][column] = self.player.symbol
 
-    def reset_game(self):
-        """Resets the game to its initial state."""
-
-        self.board = None
-        self.make_empty_board()
-        self.winner = None
-
-    def play_game(self):
+    def play_game (self):
         """Runs the main body of the game after mode selection."""
 
         # game continues without a winner or a tie
@@ -94,7 +88,7 @@ class Game:
             self.print_board()
             if self.winner:
                 # there is a winner
-                print(f"Player {self.player.symbol} is the winner!")
+                print(f"Player {self.player.symbol} is the winner!\n")
 
             # switches player and increments count
             self.count += 1
@@ -102,16 +96,40 @@ class Game:
 
         if not self.winner:
             # there is a tie
-            print(f"There's no winner. Try again!")
+            print(f"There's no winner. Try again!\n")
+
+        self.new_game()
+
+    def new_game (self):
+        """Prompts the option to start a new game after completion."""
+
+        while self.resume not in ['Y', 'N']:
+            # sanity checks the input and changes the status of resume
+            self.resume = input("Would you like a new game? Y for yes and N for no.\n")
+
+        if self.resume == 'Y':
+            # resets game status if user wants a new one
+            self.reset_game()
+        else:
+            exit()
+
+    def reset_game (self):
+        """Resets the game to its initial state."""
+
+        self.board = None
+        self.make_empty_board()
+        self.winner = None
+        self.count = 0
+        self.resume = False
 
 
 class Human:
-    def __init__(self, player):
+    def __init__ (self, player):
         """Initializes a human player that inputs moves."""
 
         self.symbol = player
 
-    def get_move(self, board):
+    def get_move (self, board):
         """Prompts the user to make the next move.
         Validates it and updates it to the board."""
 
@@ -139,12 +157,12 @@ class Human:
 
 
 class Bot:
-    def __init__(self, player):
+    def __init__ (self, player):
         """Initializes a bot player that takes random moves."""
 
         self.symbol = player
 
-    def get_move(self, board):
+    def get_move (self, board):
         """Chooses a random spot to move from available candidates."""
 
         # algorithm for the bot to pick a random move from available spots
