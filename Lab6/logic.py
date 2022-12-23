@@ -3,6 +3,7 @@
 # should be unit-testable.
 
 import random
+import sys
 import numpy as np
 from itertools import cycle
 
@@ -111,7 +112,7 @@ class Game:
             # resets game status if user wants a new one
             self.reset_game()
         else:
-            exit()
+            sys.exit("So long!")
 
     def reset_game (self):
         """Resets the game to its initial state."""
