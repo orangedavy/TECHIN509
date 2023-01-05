@@ -120,25 +120,24 @@ html, body {
 .tile div {
   display: none;
   overflow: hidden;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.85)
 }
 
 
 .btn {
-  width: 100%;
   display: inline-block;
-  background: #000;
+	cursor: pointer;
+  background: #f5d654;
   color: #fff;
-  border-radius: 5px;
-  margin-top: 2rem;
-  padding: 0.33rem;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: background-color 0.25s;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-top: 350px;
+  padding:15px 25px;
 }
 
 .btn:hover {
-  background: #333;
+  background: #f1c50e;
 }
 
 #label-computer {
@@ -333,7 +332,7 @@ input[id*='-8-o']:checked ~ #board #tile-8 div::before {
 }
 #tile-0 label,
 #tile-0 div {
-  border-radius: 0 0 0 0;
+  border-radius: 10% 0 0 0;
 }
 #tile-1 {
   grid-column: 2;
@@ -345,7 +344,7 @@ input[id*='-8-o']:checked ~ #board #tile-8 div::before {
 }
 #tile-2 label,
 #tile-2 div {
-  border-radius: 0 0 0 0;
+  border-radius: 0 10% 0 0;
 }
 #tile-3 {
   grid-column: 1;
@@ -365,7 +364,7 @@ input[id*='-8-o']:checked ~ #board #tile-8 div::before {
 }
 #tile-6 label,
 #tile-6 div {
-  border-radius: 0 0 0 0;
+  border-radius: 0 0 0 10%;
 }
 #tile-7 {
   grid-column: 2;
@@ -377,7 +376,7 @@ input[id*='-8-o']:checked ~ #board #tile-8 div::before {
 }
 #tile-8 label,
 #tile-8 div {
-  border-radius: 0 0 0 0;
+  border-radius: 0 0 10% 0;
 }
 
 #end {
@@ -402,12 +401,16 @@ input[id*='-8-o']:checked ~ #board #tile-8 div::before {
 }
 
 #message input {
-  background: #000;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem 1.75rem;
-  margin: auto auto;
   margin-top: 2rem;
+	cursor: pointer;
+  background: #f5d654;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  padding: 15px 25px;
+  border: none;
 }
 
 input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ #end,
