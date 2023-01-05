@@ -9,7 +9,7 @@
 
 {% if mode == 'Double' %}
   <link rel="stylesheet" href="../static/Play_double.css" media="screen">
-{% elif mode == 'Single' %}
+{% else %}
   <link rel="stylesheet" href="../static/Play_single.css" media="screen">
 {% endif %}
 
@@ -132,7 +132,7 @@
                 <div></div>
               </div>
             </div>
-          {% elif mode == 'Single' %}
+          {% else %}
             <div id="board" class="center">
               <div class="tile" id="tile-0">
                 <label for="cell-0-x"></label>
